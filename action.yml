@@ -32,7 +32,7 @@ runs:
 
     - name: Install obsidian-export
       if: steps.cache-obsidian-export.outputs.cache-hit != 'true'
-      uses: actions-rs/install@v0.1
+      uses: actions-rs/install@v0.1.2
       with:
         crate: obsidian-export
         version: latest
