@@ -20,16 +20,8 @@ runs:
   steps:
     - uses: actions/checkout@v3
       with:
-        submodules: false 
-        fetch-depth: 0
-
-    - name: Checkout submodules using a PAT
-      run: |
-        git config --file .gitmodules --get-regexp url | while read url; do
-          git config --file=.gitmodules $(echo "$url" | sed -E "s/git@github.com:|https:\/\/github.com\//https:\/\/${{ secrets.CI_PAT }}:${{ secrets.CI_PAT }}@github.com\//")
-        done
-        git submodule sync
-        git submodule update --init --recursive
+        submodules: recursive
+        token: $ {{ secrets.CI_TOKEN }}
 
     - name: Cache cargo plugins
       id: cache-obsidian-export
