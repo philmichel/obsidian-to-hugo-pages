@@ -54,7 +54,7 @@ runs:
     - name: Obsidian layout fixes for images and links
       uses: actions/checkout@v3
       with:
-        repository: tardoe/obsidian-to-hugo-pages
+        repository: philmichel/obsidian-to-hugo-pages
         path: layout
 
     - name: Copy over layout fixes to correct path
