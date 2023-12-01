@@ -4,9 +4,6 @@ author: 'x1sec'
 branding: 
   icon: play-circle
   color: black
-secrets:
-  CI_TOKEN:
-    required: true
 inputs:
   vault-path:
     required: true
@@ -17,6 +14,9 @@ inputs:
   github-token:
     required: true
     type: string
+  ci-token:
+    required: true
+    type: string
 
 runs:
   using: "composite"
@@ -24,7 +24,7 @@ runs:
     - uses: actions/checkout@v3
       with:
         submodules: recursive
-        token: ${{ secrets.CI_TOKEN }}
+        token: ${{ inputs.ci-token }}
 
     - name: Cache cargo plugins
       id: cache-obsidian-export
