@@ -4,6 +4,9 @@ author: 'x1sec'
 branding: 
   icon: play-circle
   color: black
+secrets:
+  CI_TOKEN:
+    required: true
 inputs:
   vault-path:
     required: true
